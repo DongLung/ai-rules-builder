@@ -168,15 +168,23 @@ otp_length = 6
 # Increased to 2 hours to account for email delivery delays and corporate email scanning
 otp_expiry = 7200
 
-# Use a production-ready SMTP server
-# [auth.email.smtp]
-# enabled = true
-# host = "smtp.sendgrid.net"
-# port = 587
-# user = "apikey"
-# pass = "env(SENDGRID_API_KEY)"
-# admin_email = "admin@email.com"
-# sender_name = "Admin"
+# Use Resend as SMTP provider for email delivery
+# For local development, Inbucket is used (emails are captured, not sent)
+# For production, configure SMTP in Supabase Dashboard:
+#   Host: smtp.resend.com
+#   Port: 465
+#   Username: resend
+#   Password: <your RESEND_API_KEY>
+#   Sender email: no-reply@notifications.przeprogramowani.pl
+#   Sender name: 10xRules.ai
+[auth.email.smtp]
+enabled = true
+host = "smtp.resend.com"
+port = 465
+user = "resend"
+pass = "env(RESEND_API_KEY)"
+admin_email = "no-reply@notifications.przeprogramowani.pl"
+sender_name = "10xRules.ai"
 
 [auth.email.template.confirmation]
 subject = "✨ 10xRules.ai | Confirm your email"

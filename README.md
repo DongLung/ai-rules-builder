@@ -73,6 +73,10 @@ SUPABASE_SERVICE_ROLE_KEY=your_supabase_service_role_key
 
 CF_CAPTCHA_SITE_KEY=1x00000000000000000000AA
 CF_CAPTCHA_SECRET_KEY=1x0000000000000000000000000000000AA
+
+# Email delivery via Resend (used by Supabase SMTP)
+# Get your API key from https://resend.com
+RESEND_API_KEY=re_xxxxxxxxxxxxx
 ```
 
 ## Tech Stack
